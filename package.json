@@ -15,6 +15,6 @@
     "@storybook/web-components": "^6.5.9",
     "babel-loader": "^8.2.5",
     "clsx": "^1.2.1",
-    "lit-html": "^2.2.7"
+    "lit": "^2.2.7"
   }
 }
