@@ -1,29 +1,54 @@
-.my-button {
-  font-weight: 700;
-  border: 0;
-  border-radius: 3em;
-  cursor: pointer;
-  display: inline-block;
-  line-height: 1;
+// https://material.io/develop/web/theming/color
+@use '@material/theme' with (
+  $primary: #1e39d2,
+  $secondary: #f13b04
+);
+
+// - docs: https://material.io/components/buttons/web
+// - examples: https://material-components.github.io/material-web/demos/button/
+@use '@material/button/mdc-button';
+@use '@material/button';
+
+@mixin custom-button-mixin {
+  @include button.shape-radius(6px);
+  @include button.height(2.5rem);
+  font-weight: 600;
+  text-transform: none;
+  font-size: 1rem;
 }
-.my-button--primary {
-  color: white;
-  background-color: #1ea7fd;
-}
-.my-button--secondary {
-  color: #333;
-  background-color: transparent;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-}
-.my-button--small {
-  font-size: 12px;
-  padding: 10px 16px;
-}
-.my-button--medium {
-  font-size: 14px;
-  padding: 11px 20px;
-}
-.my-button--large {
-  font-size: 16px;
-  padding: 12px 24px;
+
+.mdc-button {
+  &.is-primary {
+    @extend .mdc-button--raised;
+    @include custom-button-mixin;
+  }
+
+  &.is-secondary {
+    @extend .mdc-button--outlined;
+    @include custom-button-mixin;
+    @include button.outline-color(primary);
+  }
+
+  &.is-tertiary {
+    @extend .mdc-button--raised;
+    @include custom-button-mixin;
+    @include button.container-fill-color(secondary);
+  }
+
+  &.is-link {
+    @include custom-button-mixin;
+  }
+
+  &.is-small {
+    @include button.height(2rem);
+    font-size: 0.75rem;
+  }
+
+  &.is-large {
+    @include button.height(3rem);
+  }
+
+  &.is-full-width {
+    width: 100%;
+  }
 }

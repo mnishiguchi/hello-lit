@@ -9,19 +9,28 @@ export default {
       control: { type: 'radio' },
       options: ['small', 'medium', 'large'],
       defaultValue: 'medium'
+    },
+    fullWidth: {
+      control: { type: 'boolean' },
+      defaultValue: false
+    },
+    variant: {
+      control: { type: 'radio' },
+      options: ['primary', 'secondary', 'tertiary', 'link'],
+      defaultValue: 'primary'
     }
   }
 }
 
-const Template = ({ primary, label, size }) =>
+const Template = ({ fullWidth, label, size, variant }) =>
   html`<my-button
-    ?primary=${primary}
+    ?fullWidth=${fullWidth}
+    .variant=${variant}
     .label=${label}
     .size=${size}
   ></my-button>`
 
 export const Example = Template.bind({})
 Example.args = {
-  primary: true,
   label: 'Button'
 }

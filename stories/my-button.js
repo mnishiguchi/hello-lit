@@ -1,14 +1,16 @@
-import { LitElement, html, css } from 'lit'
+import { LitElement, html } from 'lit'
 import clsx from 'clsx'
 import Style from './my-button.scss'
 
 export class Button extends LitElement {
+  // https://github.com/drdreo/lit-scss-loader
   static get styles() {
     return [Style]
   }
 
   static properties = {
-    primary: { type: Boolean },
+    fullWidth: { type: Boolean },
+    variant: { type: String },
     size: { type: String },
     label: { type: String },
     onClick: { type: Function }
@@ -16,19 +18,24 @@ export class Button extends LitElement {
 
   constructor() {
     super()
-    this.size = 'medium'
   }
 
   render() {
     const className = clsx([
-      'my-button',
-      `my-button--${this.size}`,
-      [this.primary ? 'my-button--primary' : 'my-button--secondary']
+      'mdc-button',
+      this.variant === 'primary' && 'is-primary',
+      this.variant === 'secondary' && 'is-secondary',
+      this.variant === 'tertiary' && 'is-tertiary',
+      this.variant === 'link' && 'is-link',
+      this.size === 'small' && 'is-small',
+      this.size === 'large' && 'is-large',
+      this.fullWidth && 'is-full-width',
     ])
 
     return html`
       <button type="button" class=${className} @click=${this.onClick}>
-        ${this.label}
+        <div class="mdc-button__ripple"></div>
+        <span class="mdc-button__label">${this.label}</span>
       </button>
     `
   }
