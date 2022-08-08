@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <style>
+    body {
+      width: 100vw;
+    }
+    .container {
+      padding: 0 2rem;
+    }
+    button:not(.is-fullwidth) {
+      margin: 0 .5rem;
+    }
+  </style>
+</head>
+<body>
+  <h2>Buttons</h2>
+  <div class="container">
+    <div style="margin-bottom: 2rem">
+      <my-button variant="primary" label="primary"></my-button>
+      <my-button variant="secondary" label="secondary"></my-button>
+      <my-button variant="tertiary" label="tertiary"></my-button>
+      <my-button variant="link" label="link"></my-button>
+    </div>
+    <div style="margin-bottom: 2rem">
+      <my-button variant="primary" size="small" label="small"></my-button>
+      <my-button variant="primary" size="" label="medium"></my-button>
+      <my-button variant="primary" size="large" label="large"></my-button>
+    </div>
+    <div style="margin-bottom: 2rem">
+      <my-button variant="primary" fullWidth label="full width"></my-button>
+    </div>
+  </div>
+  <script src="bundle.js" async></script>
+</body>
+</html>

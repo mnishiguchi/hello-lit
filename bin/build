@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+echo "==> Building components"
+npm run build
+
+echo "==> Showing demo on a browser"
+cp public/index.html dist/index.html
+
+npx http-server dist
