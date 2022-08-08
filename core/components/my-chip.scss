@@ -1,0 +1,28 @@
+// - docs: https://material.io/components/chips/web
+@use "@material/chips/styles";
+@use "@material/chips";
+
+$blue: #1e39d2;
+$red: #f13b04;
+$purple: #7952b3;
+
+.mdc-evolution-chip {
+  &.is-blue {
+    @include chips.container-color($blue);
+    @include chips.text-label-color(white);
+  }
+
+  &.is-purple {
+    @include chips.container-color($purple);
+    @include chips.text-label-color(white);
+  }
+
+  &.is-red {
+    @include chips.container-color($red);
+    @include chips.text-label-color(white);
+  }
+
+  &.is-small {
+    height: 1.5rem;
+  }
+}

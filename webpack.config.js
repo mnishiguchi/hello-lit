@@ -2,7 +2,7 @@ const autoprefixer = require('autoprefixer')
 
 module.exports = [
   {
-    entry: ['./core/components/my-button.js'],
+    entry: ['./core/components/my-button.js', './core/components/my-chip.js'],
     output: {
       filename: 'bundle.js'
     },
